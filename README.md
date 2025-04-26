@@ -1,59 +1,53 @@
-# ProductCatalog
+# 📦 **Product Catalog App (Angular)**
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.9.
+A simple product catalog application built with Angular, demonstrating key features such as data binding, component communication, routing, API integration, and form handling.
 
-## Development server
+### 🎯 **Project Overview**
+This project allows users to view, add, and delete products in a catalog. The app uses Angular's powerful features like components, services, HTTP requests, and form handling to create a dynamic and functional web application.
 
-To start a local development server, run:
+### 🔧 **Technologies Used**
+- **Angular** (Latest Version)
+- **TypeScript**
+- **SCSS** for styling
+- **RxJS** for handling asynchronous operations
 
+### ⚙️ **Key Features**
+- **Product List**: Dynamically rendered list of products using `*ngFor` directive.
+- **Add Product**: Form-based product creation using template-driven forms with validation.
+- **Delete Product**: Event-driven product removal from the list using `@Output` and `EventEmitter`.
+- **Product Details**: View detailed information about each product via routing (`routerLink`, `ActivatedRoute`).
+- **HTTP Requests**: Fetch products from an API using `HttpClient` (`GET`, `POST`).
+- **Form Validation**: Template-driven and reactive forms with validation (required, minlength).
+- **Error Handling**: Display loading states and handle HTTP request errors.
+
+### 🛠 **Features in Detail**
+- **Component Communication**: Use of `@Input` to pass data between components and `@Output` to emit events from child to parent components.
+- **Routing & Navigation**: Simple routing with dynamic product detail pages, including a 404 redirect.
+- **Services & Dependency Injection**: `ProductService` to manage products in the app, with methods for retrieving, adding, and deleting products.
+- **API Integration**: Data is fetched from the JSONPlaceholder API (or you can replace it with a real API for production).
+- **Form Handling**: Template-driven forms for creating new products and reactive forms for future scalability.
+
+### 🚀 **How to Run the Project Locally**
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/yourusername/product-catalog-app.git
+
+
+2. Install dependencies:
+```bash
+cd product-catalog-app
+npm install
+Run the app:
+```
+
+
+3. Run the app:
 ```bash
 ng serve
+Open your browser and navigate to: http://localhost:4200/.
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+4. Open your browser and navigate to: http://localhost:4200/.
 
-## Code scaffolding
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
