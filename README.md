@@ -1,4 +1,4 @@
-# 📦 **Product Catalog App (Angular)**
+# 📦 **Product Catalog App (Angular) - in development**
 
 A simple product catalog application built with Angular, demonstrating key features such as data binding, component communication, routing, API integration, and form handling.
 
