@@ -1,0 +1,30 @@
+.hero {
+    & h1 {
+        font-size: 3rem;
+    }
+
+    & h2 {
+        font-size: 2rem;
+    }
+}
+
+.item-list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.form-wrapper {
+    padding: 10px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    margin: 20px auto;
+    border: 2px solid black;
+}
+
+.form-wrapper input {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}

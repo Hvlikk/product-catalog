@@ -1,1 +1,21 @@
-<p>product-list-component works!</p>
+<div class="hero">
+    <h1>Zakupownik - twój asystent! </h1>
+    <h2>Cześć, {{user()}}!</h2>
+</div>
+    <div class="form-wrapper">
+        <p>Dodaj przedmioty do listy!</p>
+        <label for="input-name">Nazwa produktu:</label>
+        <input [(ngModel)]="newItemName" type="text" placeholder="Wpisz nazwe produktu..." id="input-name">
+        
+        <label for="input-price">Cena produktu:</label>
+        <input [(ngModel)]="newItemPrice" type="text" placeholder="Wpisz cene..." id="input-price">
+
+        <button (click)="addProduct()">Dodaj produkt!</button>
+    </div>
+
+
+<div class="item-list">
+    <div *ngFor="let prod of products">
+        <app-product-item-component [product]="prod" (delete)="onDeleteProduct($event)"/>
+    </div>
+</div>

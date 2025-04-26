@@ -1,1 +1,16 @@
-<p>product-item-component works!</p>
+<div *ngIf="product">
+    <div class="product-list">
+      <div class="product-card" [ngClass]="{
+        'zwykly': product.price < 1000,
+        'premium' : product.price >= 1000
+      }">
+      @if (product.price >= 1000) {
+          <span class="hot-take"><strong>🔥🔥 PREMIUM! 🔥🔥</strong></span>
+      }
+          <div class="product-name">{{ product.name }}</div>
+          <span class="desc">Cena: {{ product.price }}</span>
+          <p>Description: Lorem ipsum dolor sit amet.</p>
+          <button (click)="delete.emit(product.id)">Usuń!</button>
+        </div>
+      </div>
+  </div>
