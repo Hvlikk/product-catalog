@@ -1,6 +1,6 @@
 .wrapper {
     position: relative;
-    height: 100vh;
+    height: calc(100vh - 74px);
     width: 100%;
 }
 
@@ -10,7 +10,7 @@
     position: absolute;
     width: 100%;
     height: 100vh;
-    min-height: 95vh;
+    max-height: calc(100vh - 74px);;
     filter: grayscale(1);
     background-image: url(https://cdn.pixabay.com/photo/2020/02/20/13/25/city-4864747_1280.jpg);
     background-position: center;

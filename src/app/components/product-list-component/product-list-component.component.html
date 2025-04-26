@@ -1,21 +1,28 @@
-<div class="hero">
-    <h1>Zakupownik - twój asystent! </h1>
-    <h2>Cześć, {{user()}}!</h2>
-</div>
-    <div class="form-wrapper">
-        <p>Dodaj przedmioty do listy!</p>
-        <label for="input-name">Nazwa produktu:</label>
-        <input [(ngModel)]="newItemName" type="text" placeholder="Wpisz nazwe produktu..." id="input-name">
-        
-        <label for="input-price">Cena produktu:</label>
-        <input [(ngModel)]="newItemPrice" type="text" placeholder="Wpisz cene..." id="input-price">
-
-        <button (click)="addProduct()">Dodaj produkt!</button>
+<div class="content-wrap">
+    <div class="hero">
+        <h1>Zakupownik - twój zakupowy asystent! </h1>
+        <br>
+        <h2>Cześć, {{user()}}!</h2>
+        <br>
+        <h2>Poniżej znajduje się Twój koszyk!</h2>
     </div>
-
-
-<div class="item-list">
-    <div *ngFor="let prod of products">
-        <app-product-item-component [product]="prod" (delete)="onDeleteProduct($event)"/>
+    <div class="form">
+        <div class="form-wrapper">
+                <p>Dodaj przedmioty do listy!</p>
+                <label for="input-name">Nazwa produktu:</label>
+                <input [(ngModel)]="newItemName" type="text" placeholder="Wpisz nazwe produktu..." id="input-name">
+        
+                <label for="input-price">Cena produktu:</label>
+                <input [(ngModel)]="newItemPrice" type="text" placeholder="Wpisz cene..." id="input-price">
+        
+                <button class="add-button" (click)="addProduct()">Dodaj produkt!</button>
+        </div>
+    </div>
+    
+    
+    <div class="item-list">
+        <div *ngFor="let prod of products">
+            <app-product-item-component [product]="prod" (delete)="onDeleteProduct($event)"/>
+        </div>
     </div>
 </div>
