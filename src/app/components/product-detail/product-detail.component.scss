@@ -1,0 +1,40 @@
+h1, p {
+    color: #fcfcfc;
+
+}
+
+.wrapper {
+    display: flex;
+
+    margin-top: 150px;
+    margin-left: 32px;
+
+    & .info-wrapper {
+        & .img-wrapper img {
+            justify-content: space-between;
+            width: 256px;
+            height: 256px;
+            margin-bottom: 36px;
+        }
+
+        & h1 {
+            font-size: 3rem;
+        }
+
+        & p {
+            font-size: 1.7rem;
+        }
+        font-weight: 400;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 40px;
+        width: 50%;
+    }
+
+    & .desc-wrapper {
+        width: 50%;
+        font-size: 1.7rem;
+    }
+}
+

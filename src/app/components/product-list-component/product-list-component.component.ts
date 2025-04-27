@@ -1,43 +1,40 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { ProductItemComponentComponent } from '../product-item-component/product-item-component.component';
 import { Product } from '../../models/product.model';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Router, RouterLink } from '@angular/router';
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-product-list-component',
   standalone: true,
-  imports: [CommonModule, ProductItemComponentComponent, FormsModule],
+  imports: [CommonModule, ProductItemComponentComponent, FormsModule, RouterLink],
   templateUrl: './product-list-component.component.html',
   styleUrl: './product-list-component.component.scss'
 })
 export class ProductListComponentComponent {
  
-  newItemName = signal('XD');
-  newItemPrice = signal(0);
-  user = signal('Mateusz');
+  
+    prodService = inject(ProductService);
+    newItemName = signal('Test');
+    newItemPrice = signal(1500);
+    user = signal('Mateusz');
+    product: Product | undefined;
 
-  products: Product[] = [
-    {id: 1, name: "TV", price: 999},
-    {id: 2, name: "Phone", price: 888},
-    {id: 3, name: "Speaker", price: 777},
-    {id: 4, name: "Earbuds", price: 666},
-  ]
+    products: Product[] = this.prodService.getProducts();
 
   addProduct() {
-    console.log();
-    this.products.push({id: this.products.length + 1, name: this.newItemName(), price: +this.newItemPrice()});
-    console.log(this.products);
+    this.prodService.addProduct(this.newItemName(), +this.newItemPrice());
+  }
+    
+  onDeleteProduct(id: number) {
+    this.prodService.onDeleteProduct(id);
+    this.products = this.prodService.getProducts(); // Zaktualizowanie listy
   }
 
-  onDeleteProduct(id: number) {
-    let tempProducts: Product[] = [];
-    for (let i = 0; i < this.products.length; i++) {
-      if (this.products[i].id !== id) {
-        tempProducts.push(this.products[i]);
-      }
-    }
-    this.products = tempProducts;
+  getProductById(id: number) : void {
+    this.prodService.getProductById(id);
   }
 }
 
