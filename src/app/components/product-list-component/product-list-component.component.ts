@@ -5,11 +5,12 @@ import { CommonModule } from '@angular/common';
 import { Form, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { ProductService } from '../../services/product.service';
+import { ProductFilterPipe } from '../../pipes/product-filter.pipe';
 
 @Component({
   selector: 'app-product-list-component',
   standalone: true,
-  imports: [CommonModule, ProductItemComponentComponent, FormsModule, RouterLink, ReactiveFormsModule],
+  imports: [CommonModule, ProductItemComponentComponent, FormsModule, RouterLink, ReactiveFormsModule, ProductFilterPipe],
   templateUrl: './product-list-component.component.html',
   styleUrl: './product-list-component.component.scss'
 })
@@ -19,6 +20,7 @@ export class ProductListComponentComponent {
     newItemPrice = signal(1500);
     user = signal('Mateusz');
     product: Product | undefined;
+    searchTerm = '';
 
     newProduct = {
       name: '',

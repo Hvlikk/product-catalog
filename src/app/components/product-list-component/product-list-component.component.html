@@ -42,9 +42,15 @@
         
     </div>
     
+    <div class="filter-section">
+
+        <label for="search">Filtruj dane:</label>
+        <input type="text" placeholder="Wprowadź tekst" [(ngModel)]="searchTerm">
+
+    </div>
 
     <div class="item-list">
-        <div *ngFor="let prod of products">
+        <div *ngFor="let prod of products | productFilter: searchTerm">
             <div class="content-wrapper">
                 <div class="content">
                     <a [routerLink]="['/product', prod.id]">
