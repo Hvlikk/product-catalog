@@ -3,12 +3,14 @@ import { Product } from '../models/product.model';
 
 
 @Pipe({
-  name: 'productFilter'
+  name: 'productFilter',
+  pure: false, //Always when detected change
 })
 export class ProductFilterPipe implements PipeTransform {
 
   transform(products: Product[], searchTerm: string): Product[] {
-    return products.filter(products => products.name.match(searchTerm)); //case sensitive
+    const filter = searchTerm.toLowerCase();
+    return products.filter(products => products.name.toLowerCase().match(filter)); //case sensitive
   }
 
 }

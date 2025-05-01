@@ -67,10 +67,13 @@
 //Forms 
 
 .forms {
+    margin-left: 16px;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: flex-start;
+    gap: 32px;
     margin-top: 32px;
+    margin-bottom: 36px;
 
     & .template-driven-form {
         margin-top: 32px;
@@ -112,7 +115,7 @@
             & .button-box {
                 margin-top: 10px;
                 display: flex;
-                justify-content: center;
+                justify-content: flex-start;
                 
                 & button {
                 width: 60%;
@@ -131,38 +134,41 @@
 
         }
     }
+}
 
-    & .reactive-form {
-        margin-top: 32px;
+// FIlter
+.filter-box { 
+    color: #fcfcfc;
+    border: 2px solid #fcfcfc;
+    margin-top: 32px;
+    padding: 32px;
+
+    & p {
         display: flex;
-        flex-direction: column;
-        border: 2px solid white;
-        color: #fcfcfc;
-        padding: 32px;
-
-        & form {
-            display: flex;
-            flex-direction: column;
-    
-            & .price-input {
-                width: 50%;
-            }
-
-            & label {
-                font-size: 1.3rem;
-                padding: 5px;
-            }
-
-            & input {
-                width: 100%;
-                border-radius: 8px;
-                font-size: 1.2rem;
-            }
-        }
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 16px;
     }
 
-    margin-bottom: 36px;
+    & .filter-section{
+        font-size: 1.3rem;
+        color: #fcfcfc;
+        // padding: 8px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    
+        & label {
+            padding: 5px;
+        }
+
+        & input {
+            border-radius: 8px;
+            font-size: 1.2rem;
+        }
+    }
 }
+
 
 
 a {

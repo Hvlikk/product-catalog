@@ -39,14 +39,14 @@
                 <div class="button-box"><button type="submit" [disabled]="productForm.invalid">Dodaj produkt!</button></div>
             </form>
         </div>
-        
-    </div>
-    
-    <div class="filter-section">
-
-        <label for="search">Filtruj dane:</label>
-        <input type="text" placeholder="Wprowadź tekst" [(ngModel)]="searchTerm">
-
+        <div class="filter-box">
+            <p>Filter pipe</p>
+            <div class="filter-section">
+            
+                <label for="search">Filtruj przedmioty:</label>
+                <input type="text" placeholder="Wprowadź tekst" [(ngModel)]="searchTerm">
+            </div>
+        </div>
     </div>
 
     <div class="item-list">
