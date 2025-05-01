@@ -1,9 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../models/product.model';
+import { map, Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { ApiProd } from '../models/apiProduct.model';
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
+  
+  constructor(private http : HttpClient) {}
+
     private products: Product[] = [
       {id: 1, name: "TV", price: 999, photo:'assets/placeholder.png'},
       {id: 2, name: "Phone", price: 888, photo:'assets/placeholder.png'},
@@ -40,5 +46,18 @@ export class ProductService {
       }
     }
     this.products = tempProducts;
+  }
+
+
+  getProductsFromApi() : Observable<Product[]> {
+    return this.http.get<any[]>('https://fakestoreapi.com/products').pipe(
+      map(products =>  
+        products.map(p => ({
+        id: p.id,
+        name: p.title,
+        price: p.price
+      } as Product))
+    )
+    );
   }
 }

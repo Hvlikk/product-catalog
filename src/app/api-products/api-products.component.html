@@ -1,0 +1,9 @@
+<p class="loader" *ngIf="productsArr.length === 0">Brak danych!</p>
+
+<div class="content-wrapper">
+    <div class="cards">
+        <div *ngFor="let prod of productsArr">
+                <app-product-item-component [product]="prod"/>
+        </div>
+    </div>
+</div>

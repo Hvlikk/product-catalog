@@ -8,9 +8,11 @@
           <span class="hot-take"><strong>🔥🔥 PREMIUM! 🔥🔥</strong></span>
       }
           <div class="product-name">{{ product.name }}</div>
-          <span class="desc">Cena: {{ product.price }}</span>
-          <p>Description: Lorem ipsum dolor sit amet.</p>
-          <button (click)="delete.emit(product.id)">Zobacz więcej!</button>
+          <div class="desc">
+            <span>Cena: {{ product.price }}</span>
+            <p>Description: Lorem ipsum dolor sit amet.</p>
+          </div>
+          <button>Zobacz więcej!</button>
         </div>
       </div>
   </div>

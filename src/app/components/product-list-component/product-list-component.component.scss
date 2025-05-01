@@ -12,6 +12,7 @@
     }
 }
 
+
 .content-wrapper {
     display: flex;
     flex-direction: column;
@@ -78,6 +79,31 @@
     flex-direction: column;
     margin: 20px auto;
     border: 2px solid #fcfcfc;
+
+    & input {
+        font-weight: 300;
+        font-size: 1.2rem;
+        width: 50%;
+        border-radius: 16px;
+        text-align: center;
+    }
+
+    & .add-button {
+        width: 50%;
+        height: 45px;
+        font-weight: 300;
+        border-radius: 16px;
+        border: 2px solid rgb(153, 153, 153);
+        font-size: 1.1rem;
+    } 
+
+    & .add-button:hover {
+        cursor: pointer;
+        background: greenyellow;
+        border: 2px solid #fcfcfc;
+        transition: ease 0.7s;
+    }
+       
 }
 
 .form-wrapper input {
