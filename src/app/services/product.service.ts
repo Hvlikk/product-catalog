@@ -46,6 +46,9 @@ export class ProductService {
       }
     }
     this.products = tempProducts;
+    for(let id = 0; id < this.products.length; id++){
+      this.products[id].id = id;
+    }
   }
 
 
