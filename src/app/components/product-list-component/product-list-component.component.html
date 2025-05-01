@@ -5,17 +5,41 @@
         <br>
         <h2>Poniżej znajduje się lista produktów dostępnych w sklepie!</h2>
     </div>
-    <div class="form">
-        <div class="form-wrapper">
-                <p>Dodaj przedmioty do listy!</p>
-                <label for="input-name">Nazwa produktu:</label>
-                <input [(ngModel)]="newItemName" type="text" placeholder="Wpisz nazwe produktu..." id="input-name">
-        
-                <label for="input-price">Cena produktu:</label>
-                <input [(ngModel)]="newItemPrice" type="text" placeholder="Wpisz cene..." id="input-price">
-        
-                <button class="add-button" (click)="addProduct()">Dodaj produkt!</button>
+    <div class="forms">
+        <div class="template-driven-form">
+            <p>Template-driven form</p>
+           <form class="form" #form="ngForm" (ngSubmit)="submitTempDrivenForm()">
+                <label for="">Nazwa produktu: </label>
+                <input type="text" name="name" [(ngModel)]="newProduct.name" required minlength="2"/>
+                <label for="">Cena produktu: </label>
+                <input type="number" class="price-input" name="price" [(ngModel)]="newProduct.price" required minlength="1">
+           
+                <div class="button-box"><button type="submit" [disabled]="form.invalid">Dodaj produkt!</button></div>
+            </form>
+
+            <p class="info" *ngIf="form.submitted">Wysłano formularz! :)</p>
         </div>
+        <div class="template-driven-form">
+            <p>Reactive Form</p>
+            <form class="form" [formGroup]="productForm" (ngSubmit)="submitReactiveForm()">
+                <label for="name">Nazwa produktu: </label>
+                <input type="text" id="name" formControlName="name">
+                <div *ngIf="productForm.controls['name'].invalid && productForm.controls['name'].touched">
+                    <small class="error" *ngIf="productForm.controls['name'].hasError('required')">Nazwa jest wymagana!</small>
+                    <small class="error" *ngIf="productForm.controls['name'].hasError('minlength')">Nazwa musi mieć co najmniej 2 znaki!</small>
+                </div>
+
+                <label for="price">Cena produktu: </label>
+                <input class="price-input" type="text" id="price" formControlName="price">
+                <div *ngIf="productForm.controls['name'].invalid && productForm.controls['name'].touched">
+                    <small class="error" *ngIf="productForm.controls['price'].hasError('required')">Cena jest wymagana!</small>
+                    <small class="error" *ngIf="productForm.controls['price'].hasError('pattern')">Cena musi być liczbą!</small>
+                </div>
+
+                <div class="button-box"><button type="submit" [disabled]="productForm.invalid">Dodaj produkt!</button></div>
+            </form>
+        </div>
+        
     </div>
     
 
