@@ -62,6 +62,13 @@
                 </div>
             </div>
         </div>
+        <div *ngIf="loading" class="loading-indicator">
+            Ładowanie...
+        </div>
+    
+        <div *ngIf="hasMoreItems && !loading" class="load-more-button">
+            <button (click)="loadMoreProducts()">Załaduj więcej</button>
+        </div>
     </div>
 </div>
 
