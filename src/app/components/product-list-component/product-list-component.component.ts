@@ -100,7 +100,7 @@ export class ProductListComponentComponent implements OnInit {
   @HostListener('window:scroll', [])
   onScroll() {
     console.log('scrolling...');  // Debugowanie, aby sprawdzić, czy scroll jest wywoływany
-    const bottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight;
+    const bottom = window.innerHeight + window.scrollY >= document.body.scrollHeight;
     console.log(`bottom reached: ${bottom} loading: ${this.loading}, hasmore: ${this.hasMoreItems}`);  // Debugowanie, aby sprawdzić, czy warunek jest spełniony
   
     if (bottom && !this.loading && this.hasMoreItems) {
